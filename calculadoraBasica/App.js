@@ -29,6 +29,12 @@ export default function App() {
               case '/':
                 resulta = parseFloat(valor1) / parseFloat(valor2);
                 break;
+                case 'x°':
+                  resulta = Math.pow(parseFloat(valor1),parseFloat(valor2));
+                    break;
+                    case '%':
+                      resulta = parseFloat(valor1) * parseFloat(valor2)/100;
+                        break;
       }
       //cambiar el contenido de la variable de estado resultado 
       setResultado(resulta);
@@ -45,7 +51,7 @@ export default function App() {
       <View style={[styles.container,{flex:1,backgroundColor:'white'}]}>
         <Banner name="Calculadora2"/>
       </View>
-      <View style={[styles.container,{flex:5, backgroundColor:'blue'}]}>
+      <View style={[styles.container,{flex:5, backgroundColor:'orange'}]}>
         <Text style={{fontWeight:'bold'}}>Calculadora de JavaScript</Text>
         <Text>Valor 1</Text>
         <TextInput
@@ -66,20 +72,28 @@ export default function App() {
 
           <View style={[styles.container,{marginTop:20,flexDirection:'row'}]}>
 
-              <TouchableOpacity style={[{backgroundColor:'red'},styles.buttons]} onPress={()=>calcular('+')}>
+              <TouchableOpacity style={[{backgroundColor:'turquoise'},styles.buttons]} onPress={()=>calcular('+')}>
                   <Text style={styles.textButton}>+</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={[{backgroundColor:'black'},styles.buttons]} onPress={()=>calcular('-')}>
+              <TouchableOpacity style={[{backgroundColor:'turquoise'},styles.buttons]} onPress={()=>calcular('-')}>
                   <Text style={styles.textButton}>-</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={[{backgroundColor:'yellow'},styles.buttons]} onPress={()=>calcular('*')}>
+              <TouchableOpacity style={[{backgroundColor:'turquoise'},styles.buttons]} onPress={()=>calcular('*')}>
                   <Text style={styles.textButton}>*</Text>
               </TouchableOpacity>
 
-              <TouchableOpacity style={[{backgroundColor:'black'},styles.buttons]} onPress={()=>calcular('/')}>
+              <TouchableOpacity style={[{backgroundColor:'turquoise'},styles.buttons]} onPress={()=>calcular('/')}>
                   <Text style={styles.textButton}>/</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={[{backgroundColor:'turquoise'},styles.buttons]} onPress={()=>calcular('x°')}>
+                  <Text style={styles.textButton}>x°</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={[{backgroundColor:'turquoise'},styles.buttons]} onPress={()=>calcular('%')}>
+                  <Text style={styles.textButton}>%</Text>
               </TouchableOpacity>
 
               
@@ -111,7 +125,7 @@ const styles = StyleSheet.create({
     width:'100%'
   },
   inputs: {
-    color:'orange', 
+    color:'golden', 
     borderRadius:5, 
     padding:10, 
     borderWidth:2, 
@@ -128,6 +142,7 @@ const styles = StyleSheet.create({
   },
   textButton:{
     color:'white',
-    fontWeight:'bold'
+    fontWeight:'bold',
+    paddingTop:5
   }
 });
